@@ -7,9 +7,9 @@ import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import PropTypes from 'prop-types'
 import React, { createRef, useEffect, useMemo, useRef, useState } from 'react'
+import { FlashList } from '@shopify/flash-list'
 import {
   Animated,
-  FlatList,
   KeyboardAvoidingView,
   LayoutChangeEvent,
   Platform,
@@ -54,7 +54,7 @@ dayjs.extend(localizedFormat)
 
 export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
   /* Message container ref */
-  messageContainerRef?: React.RefObject<FlatList<IMessage>>
+  messageContainerRef?: React.RefObject<FlashList<IMessage>>
   /* text input ref */
   textInputRef?: React.RefObject<TextInput>
   /* Messages to display */
@@ -165,6 +165,8 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
   onPress?(context: any, message: TMessage): void
   /* Callback when a message bubble is long-pressed; default is to show an ActionSheet with "Copy Text" (see example using showActionSheetWithOptions()) */
   onLongPress?(context: any, message: TMessage): void
+  //function to get the layout of the first rendering
+  onInitialLayoutView?(event: LayoutChangeEvent): void
   /*Custom Username container */
   renderUsername?(user: User): React.ReactNode
   /* Reverses display order of messages; default is true */
@@ -260,7 +262,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
     inverted = true,
     minComposerHeight = MIN_COMPOSER_HEIGHT,
     maxComposerHeight = MAX_COMPOSER_HEIGHT,
-    messageContainerRef = createRef<FlatList<IMessage>>(),
+    messageContainerRef = createRef<FlashList<IMessage>>(),
     textInputRef = createRef<TextInput>(),
   } = props
 
@@ -465,6 +467,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
       >
         <MessageContainer
           {...messagesContainerProps}
+          keyboardShouldPersistTaps={keyboardShouldPersistTaps}
           invertibleScrollViewProps={{
             inverted: inverted,
             keyboardShouldPersistTaps: keyboardShouldPersistTaps,
@@ -587,13 +590,13 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
     }
   }
 
-  const onInitialLayoutViewLayout = (e: any) => {
+  const onInitialLayoutViewLayout = (e: LayoutChangeEvent) => {
     const { layout } = e.nativeEvent
 
     if (layout.height <= 0) {
       return
     }
-
+    props.onInitialLayoutView?.(e)
     notifyInputTextReset()
 
     maxHeightRef.current = layout.height
@@ -620,7 +623,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
       isFirstLayoutRef.current === true
     ) {
       maxHeightRef.current = layout.height
-
+      props.onInitialLayoutView?.(e)
       setState({
         ...state,
         messagesContainerHeight:
@@ -737,6 +740,7 @@ GiftedChat.propTypes = {
   renderBubble: PropTypes.func,
   renderSystemMessage: PropTypes.func,
   onLongPress: PropTypes.func,
+  onInitialLayoutView: PropTypes.func,
   renderMessage: PropTypes.func,
   renderMessageText: PropTypes.func,
   renderMessageImage: PropTypes.func,

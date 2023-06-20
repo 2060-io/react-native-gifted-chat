@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types'
 import React, { RefObject } from 'react'
+import { FlashList, FlashListProps } from '@shopify/flash-list'
 
 import {
-  FlatList,
   View,
   StyleSheet,
   TouchableOpacity,
   Text,
-  ListViewProps,
-  ListRenderItemInfo,
   NativeSyntheticEvent,
   NativeScrollEvent,
   StyleProp,
@@ -70,7 +68,7 @@ export interface MessageContainerProps<TMessage extends IMessage> {
   messages?: TMessage[]
   isTyping?: boolean
   user?: User
-  listViewProps: Partial<ListViewProps>
+  listViewProps: Partial<FlashListProps<TMessage>>
   inverted?: boolean
   loadEarlier?: boolean
   alignTop?: boolean
@@ -79,7 +77,8 @@ export interface MessageContainerProps<TMessage extends IMessage> {
   invertibleScrollViewProps?: any
   extraData?: any
   scrollToBottomOffset?: number
-  forwardRef?: RefObject<FlatList<IMessage>>
+  forwardRef: RefObject<FlashList<TMessage>>
+  keyboardShouldPersistTaps: any
   renderChatEmpty?(): React.ReactNode
   renderFooter?(props: MessageContainerProps<TMessage>): React.ReactNode
   renderMessage?(props: Message['props']): React.ReactNode
@@ -157,10 +156,10 @@ export default class MessageContainer<
 
   renderFooter = () => {
     if (this.props.renderFooter) {
-      return this.props.renderFooter(this.props)
+      return <> {this.props.renderFooter(this.props)}</>
     }
 
-    return this.renderTypingIndicator()
+    return <>{this.renderTypingIndicator()}</>
   }
 
   renderLoadEarlier = () => {
@@ -218,7 +217,7 @@ export default class MessageContainer<
     }
   }
 
-  renderRow = ({ item, index }: ListRenderItemInfo<TMessage>) => {
+  RenderRow = ({ item, index }: { index: number; item: IMessage }) => {
     if (!item._id && item._id !== 0) {
       warning('GiftedChat: `_id` is missing for message', JSON.stringify(item))
     }
@@ -241,7 +240,7 @@ export default class MessageContainer<
       const messageProps: Message['props'] = {
         ...restProps,
         user,
-        key: item._id,
+        key: index,
         currentMessage: item,
         previousMessage,
         inverted,
@@ -250,7 +249,7 @@ export default class MessageContainer<
       }
 
       if (this.props.renderMessage) {
-        return this.props.renderMessage(messageProps)
+        return <>{this.props.renderMessage(messageProps)}</>
       }
       return <Message {...messageProps} />
     }
@@ -260,7 +259,7 @@ export default class MessageContainer<
   renderChatEmpty = () => {
     if (this.props.renderChatEmpty) {
       return this.props.inverted ? (
-        this.props.renderChatEmpty()
+        <>{this.props.renderChatEmpty()}</>
       ) : (
         <View style={styles.emptyChatContainer}>
           {this.props.renderChatEmpty()}
@@ -311,7 +310,7 @@ export default class MessageContainer<
     }
   }
 
-  onEndReached = ({ distanceFromEnd }: { distanceFromEnd: number }) => {
+  onEndReached = () => {
     const {
       loadEarlier,
       onLoadEarlier,
@@ -320,8 +319,6 @@ export default class MessageContainer<
     } = this.props
     if (
       infiniteScroll &&
-      (this.state.hasScrolled || distanceFromEnd > 0) &&
-      distanceFromEnd <= 100 &&
       loadEarlier &&
       onLoadEarlier &&
       !isLoadingEarlier &&
@@ -334,25 +331,26 @@ export default class MessageContainer<
   keyExtractor = (item: TMessage) => `${item._id}`
 
   render() {
-    const { inverted } = this.props
+    const { inverted, keyboardShouldPersistTaps } = this.props
     return (
       <View
         style={
           this.props.alignTop ? styles.containerAlignTop : styles.container
         }
       >
-        <FlatList
+        <FlashList
           ref={this.props.forwardRef}
           extraData={[this.props.extraData, this.props.isTyping]}
           keyExtractor={this.keyExtractor}
-          enableEmptySections
+          //enableEmptySections
           automaticallyAdjustContentInsets={false}
           inverted={inverted}
           data={this.props.messages}
-          style={styles.listStyle}
-          contentContainerStyle={styles.contentContainerStyle}
-          renderItem={this.renderRow}
-          {...this.props.invertibleScrollViewProps}
+          //style={styles.listStyle}
+          //contentContainerStyle={styles.contentContainerStyle}
+          renderItem={this.RenderRow}
+          //{...this.props.invertibleScrollViewProps}
+          keyboardShouldPersistTaps={keyboardShouldPersistTaps}
           ListEmptyComponent={this.renderChatEmpty}
           ListFooterComponent={
             inverted ? this.renderHeaderWrapper : this.renderFooter
