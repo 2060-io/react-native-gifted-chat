@@ -7,10 +7,12 @@ import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import PropTypes from 'prop-types'
 import React, { createRef, useEffect, useMemo, useRef, useState } from 'react'
-import { FlashList } from '@shopify/flash-list'
+import { FlashList, FlashListProps } from '@shopify/flash-list'
 import {
   Animated,
+  Keyboard,
   KeyboardAvoidingView,
+  KeyboardEvent,
   LayoutChangeEvent,
   Platform,
   StyleProp,
@@ -106,7 +108,7 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
   /* Minimum height of the input toolbar; default is 44 */
   minInputToolbarHeight?: number
   /*Extra props to be passed to the messages <ListView>; some props can't be overridden, see the code in MessageContainer.render() for details */
-  listViewProps?: any
+  listViewProps: Partial<FlashListProps<TMessage>>
   /*  Extra props to be passed to the <TextInput> */
   textInputProps?: any
   /*Determines whether the keyboard should stay visible after a tap; see <ScrollView> docs */
@@ -381,27 +383,24 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
     _isTextInputWasFocused = false
   }
 
-  const onKeyboardWillShow = (e: any) => {
+  const onKeyboardWillShow = (e: KeyboardEvent) => {
     handleTextInputFocusWhenKeyboardShow()
 
     if (isKeyboardInternallyHandled) {
-      keyboardHeightRef.current = e.endCoordinates
-        ? e.endCoordinates.height
-        : e.end.height
-
+      keyboardHeightRef.current = e.endCoordinates.height
       bottomOffsetRef.current = bottomOffset != null ? bottomOffset : 1
 
       const newMessagesContainerHeight = getMessagesContainerHeightWithKeyboard()
 
       setState({
         ...state,
-        typingDisabled: true,
+        typingDisabled: false,
         messagesContainerHeight: newMessagesContainerHeight,
       })
     }
   }
 
-  const onKeyboardWillHide = (_e: any) => {
+  const onKeyboardWillHide = (_e: KeyboardEvent) => {
     handleTextInputFocusWhenKeyboardHide()
 
     if (isKeyboardInternallyHandled) {
@@ -416,28 +415,6 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
         messagesContainerHeight: newMessagesContainerHeight,
       })
     }
-  }
-
-  const onKeyboardDidShow = (e: any) => {
-    if (Platform.OS === 'android') {
-      onKeyboardWillShow(e)
-    }
-
-    setState({
-      ...state,
-      typingDisabled: false,
-    })
-  }
-
-  const onKeyboardDidHide = (e: any) => {
-    if (Platform.OS === 'android') {
-      onKeyboardWillHide(e)
-    }
-
-    setState({
-      ...state,
-      typingDisabled: false,
-    })
   }
 
   const scrollToBottom = (animated = true) => {
@@ -468,14 +445,6 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
         <MessageContainer
           {...messagesContainerProps}
           keyboardShouldPersistTaps={keyboardShouldPersistTaps}
-          invertibleScrollViewProps={{
-            inverted: inverted,
-            keyboardShouldPersistTaps: keyboardShouldPersistTaps,
-            onKeyboardWillShow: onKeyboardWillShow,
-            onKeyboardWillHide: onKeyboardWillHide,
-            onKeyboardDidShow: onKeyboardDidShow,
-            onKeyboardDidHide: onKeyboardDidHide,
-          }}
           messages={state.messages}
           forwardRef={messageContainerRef}
           isTyping={isTyping}
@@ -683,6 +652,21 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
     }),
     [actionSheet, locale],
   )
+
+  useEffect(() => {
+    if (!state.isInitialized) return
+    const IS_IOS = Platform.OS === 'ios'
+    const showEvent = IS_IOS ? 'keyboardWillShow' : 'keyboardDidShow'
+    const hideEvent = IS_IOS ? 'keyboardWillHide' : 'keyboardDidHide'
+
+    const subscriptionShow = Keyboard.addListener(showEvent, onKeyboardWillShow)
+    const subscriptionHide = Keyboard.addListener(hideEvent, onKeyboardWillHide)
+
+    return () => {
+      subscriptionShow.remove()
+      subscriptionHide.remove()
+    }
+  }, [state.isInitialized])
 
   if (state.isInitialized === true) {
     return (

@@ -64,6 +64,8 @@ const styles = StyleSheet.create({
   },
 })
 
+const DEFAULT_ESTIMATED_ITEM_SIZE = 150
+
 export interface MessageContainerProps<TMessage extends IMessage> {
   messages?: TMessage[]
   isTyping?: boolean
@@ -74,7 +76,6 @@ export interface MessageContainerProps<TMessage extends IMessage> {
   alignTop?: boolean
   scrollToBottom?: boolean
   scrollToBottomStyle?: StyleProp<ViewStyle>
-  invertibleScrollViewProps?: any
   extraData?: any
   scrollToBottomOffset?: number
   forwardRef: RefObject<FlashList<TMessage>>
@@ -110,7 +111,6 @@ export default class MessageContainer<
     inverted: true,
     loadEarlier: false,
     listViewProps: {},
-    invertibleScrollViewProps: {},
     extraData: null,
     scrollToBottom: false,
     scrollToBottomOffset: 200,
@@ -132,7 +132,6 @@ export default class MessageContainer<
     listViewProps: PropTypes.object,
     inverted: PropTypes.bool,
     loadEarlier: PropTypes.bool,
-    invertibleScrollViewProps: PropTypes.object,
     extraData: PropTypes.object,
     scrollToBottom: PropTypes.bool,
     scrollToBottomOffset: PropTypes.number,
@@ -339,17 +338,14 @@ export default class MessageContainer<
         }
       >
         <FlashList
+          estimatedItemSize={DEFAULT_ESTIMATED_ITEM_SIZE}
           ref={this.props.forwardRef}
           extraData={[this.props.extraData, this.props.isTyping]}
           keyExtractor={this.keyExtractor}
-          //enableEmptySections
           automaticallyAdjustContentInsets={false}
           inverted={inverted}
           data={this.props.messages}
-          //style={styles.listStyle}
-          //contentContainerStyle={styles.contentContainerStyle}
           renderItem={this.RenderRow}
-          //{...this.props.invertibleScrollViewProps}
           keyboardShouldPersistTaps={keyboardShouldPersistTaps}
           ListEmptyComponent={this.renderChatEmpty}
           ListFooterComponent={
