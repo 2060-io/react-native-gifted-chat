@@ -29,9 +29,7 @@ exports[`Day should render <Day /> and compare with snapshot 1`] = `
           undefined,
         ]
       }
-    >
-      Apr 17, 2022
-    </Text>
+    />
   </View>
 </View>
 `;
