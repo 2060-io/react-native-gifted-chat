@@ -67,6 +67,7 @@
   },
   "dependencies": {
     "@expo/react-native-action-sheet": "4.0.1",
+    "@shopify/flash-list": "^1.4.3",
     "dayjs": "1.8.26",
     "prop-types": "15.7.2",
     "react-native-communications": "2.2.1",

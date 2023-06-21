@@ -140,6 +140,7 @@ export interface BubbleProps<TMessage extends IMessage> {
   previousMessage?: TMessage
   optionTitles?: string[]
   containerStyle?: LeftRightStyle<ViewStyle>
+  wrapperRef?: React.LegacyRef<View> | null
   wrapperStyle?: LeftRightStyle<ViewStyle>
   textStyle?: LeftRightStyle<TextStyle>
   bottomContainerStyle?: LeftRightStyle<ViewStyle>
@@ -195,6 +196,7 @@ export default class Bubble<
     nextMessage: {},
     previousMessage: {},
     containerStyle: {},
+    wrapperRef: null,
     wrapperStyle: {},
     bottomContainerStyle: {},
     tickStyle: {},
@@ -228,6 +230,7 @@ export default class Bubble<
       left: StylePropType,
       right: StylePropType,
     }),
+    wrapperRef: PropTypes.object,
     wrapperStyle: PropTypes.shape({
       left: StylePropType,
       right: StylePropType,
@@ -511,6 +514,7 @@ export default class Bubble<
       containerStyle,
       wrapperStyle,
       bottomContainerStyle,
+      wrapperRef,
     } = this.props
     return (
       <View
@@ -526,6 +530,7 @@ export default class Bubble<
             this.styledBubbleToPrevious(),
             wrapperStyle && wrapperStyle[position],
           ]}
+          ref={wrapperRef}
         >
           <TouchableWithoutFeedback
             onPress={this.onPress}

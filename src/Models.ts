@@ -34,7 +34,7 @@ type renderFunction = (x: any) => JSX.Element
 export interface User {
   _id: string | number
   name?: string
-  avatar?: string | number | renderFunction
+  avatar?: string | number | null | renderFunction
 }
 
 export interface Reply {
