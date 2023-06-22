@@ -54,6 +54,10 @@ import * as utils from './utils'
 
 dayjs.extend(localizedFormat)
 
+interface ListViewProps<TMessage> extends FlashListProps<TMessage> {
+  ref: React.MutableRefObject<FlashList<TMessage> | null>
+}
+
 export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
   /* Message container ref */
   messageContainerRef?: React.RefObject<FlashList<IMessage>>
@@ -108,7 +112,7 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
   /* Minimum height of the input toolbar; default is 44 */
   minInputToolbarHeight?: number
   /*Extra props to be passed to the messages <ListView>; some props can't be overridden, see the code in MessageContainer.render() for details */
-  listViewProps?: Partial<FlashListProps<TMessage>>
+  listViewProps?: Partial<ListViewProps<TMessage>>
   /*  Extra props to be passed to the <TextInput> */
   textInputProps?: any
   /*Determines whether the keyboard should stay visible after a tap; see <ScrollView> docs */
@@ -274,6 +278,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
   const maxHeightRef = useRef<number | undefined>(undefined)
   const isFirstLayoutRef = useRef(true)
   const actionSheetRef = useRef<ActionSheetProviderRef>(null)
+  const inputToolbarPosition = useRef<string>('absolute')
 
   let _isTextInputWasFocused: boolean = false
 
@@ -389,6 +394,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
     if (isKeyboardInternallyHandled) {
       keyboardHeightRef.current = e.endCoordinates.height
       bottomOffsetRef.current = bottomOffset != null ? bottomOffset : 1
+      inputToolbarPosition.current = 'relative'
 
       const newMessagesContainerHeight = getMessagesContainerHeightWithKeyboard()
 
@@ -406,6 +412,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
     if (isKeyboardInternallyHandled) {
       keyboardHeightRef.current = 0
       bottomOffsetRef.current = 0
+      inputToolbarPosition.current = 'absolute'
 
       const newMessagesContainerHeight = getBasicMessagesContainerHeight()
 
@@ -615,6 +622,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
       onSend: _onSend,
       onInputSizeChanged: onInputSizeChanged,
       onTextChanged: _onInputTextChanged,
+      inputToolbarPosition: inputToolbarPosition.current,
       textInputProps: {
         ...textInputProps,
         ref: textInputRef,
@@ -659,12 +667,18 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
     const showEvent = IS_IOS ? 'keyboardWillShow' : 'keyboardDidShow'
     const hideEvent = IS_IOS ? 'keyboardWillHide' : 'keyboardDidHide'
 
-    const subscriptionShow = Keyboard.addListener(showEvent, onKeyboardWillShow)
-    const subscriptionHide = Keyboard.addListener(hideEvent, onKeyboardWillHide)
+    const keyboardWillShowListener = Keyboard.addListener(
+      showEvent,
+      onKeyboardWillShow,
+    )
+    const keyboardWillHideListener = Keyboard.addListener(
+      hideEvent,
+      onKeyboardWillHide,
+    )
 
     return () => {
-      subscriptionShow.remove()
-      subscriptionHide.remove()
+      keyboardWillShowListener?.remove()
+      keyboardWillHideListener?.remove()
     }
   }, [state.isInitialized])
 
