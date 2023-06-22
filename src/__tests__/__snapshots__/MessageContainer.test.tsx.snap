@@ -8,123 +8,290 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
     }
   }
 >
-  <RCTScrollView
-    ListEmptyComponent={[Function]}
-    ListFooterComponent={[Function]}
-    ListHeaderComponent={[Function]}
-    automaticallyAdjustContentInsets={false}
-    contentContainerStyle={
+  <View
+    style={
       Object {
-        "flexGrow": 1,
-        "justifyContent": "flex-start",
+        "flex": 1,
+        "overflow": "hidden",
+        "transform": Array [
+          Object {
+            "scaleY": -1,
+          },
+        ],
       }
     }
-    data={Array []}
-    disableVirtualization={false}
-    enableEmptySections={true}
-    extraData={
-      Array [
-        null,
-        false,
-      ]
-    }
-    getItem={[Function]}
-    getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
-    invertStickyHeaders={true}
-    inverted={true}
-    keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
-    onContentSizeChange={[Function]}
-    onEndReached={[Function]}
-    onEndReachedThreshold={0.1}
-    onLayout={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEventThrottle={100}
-    stickyHeaderIndices={Array []}
-    style={
-      Array [
-        Object {
-          "transform": Array [
-            Object {
-              "scaleY": -1,
-            },
-          ],
-        },
-        Object {
-          "flex": 1,
-        },
-      ]
-    }
-    updateCellsBatchingPeriod={50}
-    viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
   >
-    <View>
-      <View
-        onLayout={[Function]}
-        style={
-          Object {
-            "transform": Array [
-              Object {
-                "scaleY": -1,
-              },
-            ],
-          }
+    <RCTScrollView
+      ListEmptyComponent={[Function]}
+      ListFooterComponent={[Function]}
+      ListHeaderComponent={[Function]}
+      applyWindowCorrection={[Function]}
+      automaticallyAdjustContentInsets={false}
+      canChangeSize={true}
+      contentContainerStyle={
+        Object {
+          "backgroundColor": undefined,
+          "minHeight": 1,
+          "minWidth": 1,
+          "paddingLeft": 0,
+          "paddingRight": 0,
         }
-      >
+      }
+      contentHeight={0}
+      contentWidth={0}
+      data={Array []}
+      dataProvider={
+        DataProvider {
+          "_data": Array [],
+          "_firstIndexToProcess": 0,
+          "_hasStableIds": true,
+          "_requiresDataChangeHandling": false,
+          "_size": 0,
+          "getStableId": [Function],
+          "rowHasChanged": [Function],
+        }
+      }
+      disableRecycling={false}
+      estimatedItemSize={150}
+      extendedState={
+        Object {
+          "value": Array [
+            null,
+            false,
+          ],
+        }
+      }
+      externalScrollView={[Function]}
+      extraData={
+        Array [
+          null,
+          false,
+        ]
+      }
+      finalRenderAheadOffset={250}
+      forceNonDeterministicRendering={true}
+      horizontal={false}
+      initialOffset={0}
+      initialRenderIndex={0}
+      inverted={true}
+      isHorizontal={false}
+      keyExtractor={[Function]}
+      layoutProvider={
+        GridLayoutProviderWithProps {
+          "_acceptableRelayoutDelta": 1,
+          "_getHeightOrWidth": [Function],
+          "_getLayoutTypeForIndex": [Function],
+          "_getSpan": [Function],
+          "_hasExpired": false,
+          "_maxSpan": 1,
+          "_setLayoutForType": [Function],
+          "_tempDim": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "averageWindow": AverageWindow {
+            "currentAverage": 150,
+            "currentCount": 1,
+            "inputValues": Array [
+              150,
+            ],
+            "nextIndex": 1,
+          },
+          "defaultEstimatedItemSize": 100,
+          "layoutObject": Object {
+            "size": undefined,
+            "span": undefined,
+          },
+          "props": Object {
+            "ListEmptyComponent": [Function],
+            "ListFooterComponent": [Function],
+            "ListHeaderComponent": [Function],
+            "automaticallyAdjustContentInsets": false,
+            "data": Array [],
+            "estimatedItemSize": 150,
+            "extraData": Array [
+              null,
+              false,
+            ],
+            "inverted": true,
+            "keyExtractor": [Function],
+            "keyboardShouldPersistTaps": undefined,
+            "numColumns": 1,
+            "onEndReached": [Function],
+            "onEndReachedThreshold": 0.1,
+            "onLayout": [Function],
+            "onScroll": [Function],
+            "renderItem": [Function],
+            "scrollEventThrottle": 100,
+          },
+          "renderWindowInsets": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "shouldRefreshWithAnchoring": true,
+        }
+      }
+      maxRenderAhead={750}
+      numColumns={1}
+      onEndReached={[Function]}
+      onEndReachedThreshold={0}
+      onEndReachedThresholdRelative={0.1}
+      onItemLayout={[Function]}
+      onLayout={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onSizeChanged={[Function]}
+      onVisibleIndicesChanged={[Function]}
+      removeClippedSubviews={false}
+      renderAheadOffset={0}
+      renderAheadStep={250}
+      renderContentContainer={[Function]}
+      renderItem={[Function]}
+      renderItemContainer={[Function]}
+      rowRenderer={[Function]}
+      scrollEventThrottle={100}
+      scrollThrottle={16}
+      scrollViewProps={
+        Object {
+          "contentContainerStyle": Object {
+            "backgroundColor": undefined,
+            "minHeight": 1,
+            "minWidth": 1,
+            "paddingLeft": 0,
+            "paddingRight": 0,
+          },
+          "onLayout": [Function],
+          "onScrollBeginDrag": [Function],
+          "refreshControl": undefined,
+          "style": Object {
+            "minHeight": 1,
+            "minWidth": 1,
+          },
+        }
+      }
+      style={
+        Object {
+          "minHeight": 1,
+          "minWidth": 1,
+        }
+      }
+      suppressBoundedSizeException={true}
+      windowCorrectionConfig={
+        Object {
+          "applyToInitialOffset": true,
+          "applyToItemScroll": true,
+          "value": Object {
+            "endCorrection": 0,
+            "startCorrection": 0,
+            "windowShift": -1,
+          },
+        }
+      }
+    >
+      <View>
         <View
           style={
             Object {
-              "backgroundColor": "#f0f0f0",
-              "borderRadius": 15,
-              "height": 0,
-              "marginBottom": 0,
-              "marginLeft": 8,
-              "transform": Array [
+              "flexDirection": "column",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "paddingLeft": 0,
+                "paddingTop": 0,
+              }
+            }
+          />
+          <View
+            style={
+              Array [
+                undefined,
                 Object {
-                  "translateY": 200,
+                  "transform": Array [
+                    Object {
+                      "scaleY": -1,
+                    },
+                  ],
                 },
-              ],
-              "width": 45,
+              ]
             }
-          }
-        />
-      </View>
-      <View
-        style={
-          Object {
-            "flex": 1,
-          }
-        }
-      />
-      <View
-        onLayout={[Function]}
-        style={
-          Object {
-            "transform": Array [
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "#f0f0f0",
+                  "borderRadius": 15,
+                  "height": 0,
+                  "marginBottom": 0,
+                  "marginLeft": 8,
+                  "transform": Array [
+                    Object {
+                      "translateY": 200,
+                    },
+                  ],
+                  "width": 45,
+                }
+              }
+            />
+          </View>
+          <AutoLayoutView
+            enableInstrumentation={false}
+            horizontal={false}
+            onBlankAreaEvent={[Function]}
+            onLayout={[Function]}
+            renderAheadOffset={0}
+            scrollOffset={0}
+            style={
               Object {
-                "scaleY": -1,
-              },
-            ],
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "flex": 1,
+                "height": 0,
+                "width": 0,
+              }
             }
-          }
-        />
+            windowSize={0}
+          />
+          <View
+            style={
+              Object {
+                "flex": 1,
+              }
+            }
+          />
+          <CellContainer
+            index={-1}
+            style={
+              Array [
+                undefined,
+                Object {
+                  "transform": Array [
+                    Object {
+                      "scaleY": -1,
+                    },
+                  ],
+                },
+              ]
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                }
+              }
+            />
+          </CellContainer>
+          <View
+            style={
+              Object {
+                "paddingBottom": 0,
+                "paddingRight": 0,
+              }
+            }
+          />
+        </View>
       </View>
-    </View>
-  </RCTScrollView>
+    </RCTScrollView>
+  </View>
 </View>
 `;
