@@ -24,6 +24,7 @@ import {
 } from 'react-native'
 import { LightboxProps } from 'react-native-lightbox-v2'
 import uuid from 'uuid'
+import Reanimated from 'react-native-reanimated'
 import { Actions, ActionsProps } from './Actions'
 import { Avatar, AvatarProps } from './Avatar'
 import Bubble from './Bubble'
@@ -441,7 +442,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
     const { messagesContainerStyle, ...messagesContainerProps } = props
 
     const fragment = (
-      <View
+      <Reanimated.View
         style={[
           typeof state.messagesContainerHeight === 'number' && {
             height: state.messagesContainerHeight,
@@ -457,7 +458,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
           isTyping={isTyping}
         />
         {_renderChatFooter()}
-      </View>
+      </Reanimated.View>
     )
 
     return isKeyboardInternallyHandled ? (
