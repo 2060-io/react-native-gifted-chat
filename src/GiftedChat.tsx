@@ -456,6 +456,7 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
           messages={state.messages}
           forwardRef={messageContainerRef}
           isTyping={isTyping}
+          listContainerHeight={state.messagesContainerHeight as number}
         />
         {_renderChatFooter()}
       </Reanimated.View>

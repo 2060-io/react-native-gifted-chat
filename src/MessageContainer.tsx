@@ -12,6 +12,7 @@ import {
   StyleProp,
   ViewStyle,
   Platform,
+  Dimensions,
 } from 'react-native'
 
 import { LoadEarlier, LoadEarlierProps } from './LoadEarlier'
@@ -64,8 +65,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const DEFAULT_ESTIMATED_ITEM_SIZE = 150
-
+const screenWidth = Dimensions.get('screen').height
 export interface MessageContainerProps<TMessage extends IMessage> {
   messages?: TMessage[]
   isTyping?: boolean
@@ -89,6 +89,7 @@ export interface MessageContainerProps<TMessage extends IMessage> {
   onQuickReply?(replies: Reply[]): void
   infiniteScroll?: boolean
   isLoadingEarlier?: boolean
+  listContainerHeight: number
 }
 
 interface State {
@@ -118,6 +119,7 @@ export default class MessageContainer<
     scrollToBottomStyle: {},
     infiniteScroll: false,
     isLoadingEarlier: false,
+    listContainerHeight: 0,
   }
 
   static propTypes = {
@@ -139,6 +141,7 @@ export default class MessageContainer<
     alignTop: PropTypes.bool,
     scrollToBottomStyle: StylePropType,
     infiniteScroll: PropTypes.bool,
+    listContainerHeight: PropTypes.number,
   }
 
   state = {
@@ -338,7 +341,6 @@ export default class MessageContainer<
         }
       >
         <FlashList
-          estimatedItemSize={DEFAULT_ESTIMATED_ITEM_SIZE}
           ref={this.props.forwardRef}
           extraData={[this.props.extraData, this.props.isTyping]}
           keyExtractor={this.keyExtractor}
@@ -359,6 +361,10 @@ export default class MessageContainer<
           onLayout={this.onLayoutList}
           onEndReached={this.onEndReached}
           onEndReachedThreshold={0.1}
+          estimatedListSize={{
+            height: Math.floor(this.props.listContainerHeight),
+            width: screenWidth,
+          }}
           {...this.props.listViewProps}
         />
         {this.state.showScrollBottom && this.props.scrollToBottom
