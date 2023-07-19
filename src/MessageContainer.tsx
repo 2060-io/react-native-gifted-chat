@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const screenWidth = Dimensions.get('screen').height
+const screenWidth = Dimensions.get('screen').width
 export interface MessageContainerProps<TMessage extends IMessage> {
   messages?: TMessage[]
   isTyping?: boolean
