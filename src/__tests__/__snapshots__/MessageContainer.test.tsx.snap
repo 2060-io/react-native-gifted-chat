@@ -38,7 +38,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
         }
       }
       contentHeight={0}
-      contentWidth={0}
+      contentWidth={1334}
       data={Array []}
       dataProvider={
         DataProvider {
@@ -52,7 +52,6 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
         }
       }
       disableRecycling={false}
-      estimatedItemSize={150}
       extendedState={
         Object {
           "value": Array [
@@ -83,17 +82,46 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
           "_getLayoutTypeForIndex": [Function],
           "_getSpan": [Function],
           "_hasExpired": false,
+          "_isHorizontal": false,
+          "_lastLayoutManager": GridLayoutManager {
+            "_acceptableRelayoutDelta": 1,
+            "_getSpan": [Function],
+            "_isGridHorizontal": false,
+            "_isHorizontal": false,
+            "_layoutProvider": [Circular],
+            "_layouts": Array [],
+            "_maxSpan": 1,
+            "_renderWindowSize": Object {
+              "height": 0,
+              "width": 1334,
+            },
+            "_totalHeight": 0,
+            "_totalWidth": 1334,
+            "_window": Object {
+              "height": 0,
+              "width": 1334,
+            },
+          },
           "_maxSpan": 1,
+          "_renderWindowSize": Object {
+            "height": 0,
+            "width": 1334,
+          },
           "_setLayoutForType": [Function],
           "_tempDim": Object {
             "height": 0,
             "width": 0,
           },
           "averageWindow": AverageWindow {
-            "currentAverage": 150,
+            "currentAverage": 100,
             "currentCount": 1,
             "inputValues": Array [
-              150,
+              100,
+              ,
+              ,
+              ,
+              ,
+              ,
             ],
             "nextIndex": 1,
           },
@@ -108,7 +136,10 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             "ListHeaderComponent": [Function],
             "automaticallyAdjustContentInsets": false,
             "data": Array [],
-            "estimatedItemSize": 150,
+            "estimatedListSize": Object {
+              "height": 0,
+              "width": 1334,
+            },
             "extraData": Array [
               null,
               false,
@@ -129,6 +160,12 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             "width": 0,
           },
           "shouldRefreshWithAnchoring": true,
+        }
+      }
+      layoutSize={
+        Object {
+          "height": 0,
+          "width": 1334,
         }
       }
       maxRenderAhead={750}
@@ -246,7 +283,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             style={
               Object {
                 "height": 0,
-                "width": 0,
+                "width": 1334,
               }
             }
             windowSize={0}
