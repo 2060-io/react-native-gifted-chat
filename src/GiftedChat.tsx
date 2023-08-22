@@ -172,8 +172,6 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
   onPress?(context: any, message: TMessage): void
   /* Callback when a message bubble is long-pressed; default is to show an ActionSheet with "Copy Text" (see example using showActionSheetWithOptions()) */
   onLongPress?(context: any, message: TMessage): void
-  //function to get the layout of the first rendering
-  onInitialLayoutView?(event: LayoutChangeEvent): void
   /*Custom Username container */
   renderUsername?(user: User): React.ReactNode
   /* Reverses display order of messages; default is true */
@@ -574,7 +572,6 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
     if (layout.height <= 0) {
       return
     }
-    props.onInitialLayoutView?.(e)
     notifyInputTextReset()
 
     maxHeightRef.current = layout.height
@@ -601,7 +598,6 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
       isFirstLayoutRef.current === true
     ) {
       maxHeightRef.current = layout.height
-      props.onInitialLayoutView?.(e)
       setState({
         ...state,
         messagesContainerHeight:
@@ -740,7 +736,6 @@ GiftedChat.propTypes = {
   renderBubble: PropTypes.func,
   renderSystemMessage: PropTypes.func,
   onLongPress: PropTypes.func,
-  onInitialLayoutView: PropTypes.func,
   renderMessage: PropTypes.func,
   renderMessageText: PropTypes.func,
   renderMessageImage: PropTypes.func,
