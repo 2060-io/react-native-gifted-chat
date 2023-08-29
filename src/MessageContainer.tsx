@@ -12,7 +12,6 @@ import {
   StyleProp,
   ViewStyle,
   Platform,
-  Dimensions,
 } from 'react-native'
 
 import { LoadEarlier, LoadEarlierProps } from './LoadEarlier'
@@ -65,7 +64,6 @@ const styles = StyleSheet.create({
   },
 })
 
-const screenWidth = Dimensions.get('screen').width
 export interface MessageContainerProps<TMessage extends IMessage> {
   messages?: TMessage[]
   isTyping?: boolean
@@ -363,7 +361,7 @@ export default class MessageContainer<
           onEndReachedThreshold={0.1}
           estimatedListSize={{
             height: Math.floor(this.props.listContainerHeight),
-            width: screenWidth,
+            width: 400,
           }}
           {...this.props.listViewProps}
         />

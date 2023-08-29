@@ -38,7 +38,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
         }
       }
       contentHeight={0}
-      contentWidth={750}
+      contentWidth={400}
       data={Array []}
       dataProvider={
         DataProvider {
@@ -93,19 +93,19 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             "_maxSpan": 1,
             "_renderWindowSize": Object {
               "height": 0,
-              "width": 750,
+              "width": 400,
             },
             "_totalHeight": 0,
-            "_totalWidth": 750,
+            "_totalWidth": 400,
             "_window": Object {
               "height": 0,
-              "width": 750,
+              "width": 400,
             },
           },
           "_maxSpan": 1,
           "_renderWindowSize": Object {
             "height": 0,
-            "width": 750,
+            "width": 400,
           },
           "_setLayoutForType": [Function],
           "_tempDim": Object {
@@ -138,7 +138,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             "data": Array [],
             "estimatedListSize": Object {
               "height": 0,
-              "width": 750,
+              "width": 400,
             },
             "extraData": Array [
               null,
@@ -165,7 +165,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
       layoutSize={
         Object {
           "height": 0,
-          "width": 750,
+          "width": 400,
         }
       }
       maxRenderAhead={750}
@@ -283,7 +283,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             style={
               Object {
                 "height": 0,
-                "width": 750,
+                "width": 400,
               }
             }
             windowSize={0}
