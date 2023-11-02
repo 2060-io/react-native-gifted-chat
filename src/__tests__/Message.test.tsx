@@ -32,7 +32,7 @@ describe('Message component', () => {
           user={{ _id: 1 }}
           currentMessage={{
             _id: '1',
-            createdAt: new Date(),
+            createdAt: new Date(1554744013721 * 1000),
             text: 'hello',
             user: { _id: 1 },
           }}
