@@ -359,6 +359,7 @@ export default class MessageContainer<
           onLayout={this.onLayoutList}
           onEndReached={this.onEndReached}
           onEndReachedThreshold={0.1}
+          estimatedItemSize={100}
           estimatedListSize={{
             height: Math.floor(this.props.listContainerHeight),
             width: 400,

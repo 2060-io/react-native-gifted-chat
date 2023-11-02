@@ -3,18 +3,18 @@
 exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
 <View
   style={
-    Object {
+    {
       "flex": 1,
     }
   }
 >
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "overflow": "hidden",
-        "transform": Array [
-          Object {
+        "transform": [
+          {
             "scaleY": -1,
           },
         ],
@@ -29,7 +29,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
       automaticallyAdjustContentInsets={false}
       canChangeSize={true}
       contentContainerStyle={
-        Object {
+        {
           "backgroundColor": undefined,
           "minHeight": 1,
           "minWidth": 1,
@@ -39,10 +39,10 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
       }
       contentHeight={0}
       contentWidth={400}
-      data={Array []}
+      data={[]}
       dataProvider={
         DataProvider {
-          "_data": Array [],
+          "_data": [],
           "_firstIndexToProcess": 0,
           "_hasStableIds": true,
           "_requiresDataChangeHandling": false,
@@ -52,9 +52,10 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
         }
       }
       disableRecycling={false}
+      estimatedItemSize={100}
       extendedState={
-        Object {
-          "value": Array [
+        {
+          "value": [
             null,
             false,
           ],
@@ -62,7 +63,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
       }
       externalScrollView={[Function]}
       extraData={
-        Array [
+        [
           null,
           false,
         ]
@@ -75,6 +76,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
       inverted={true}
       isHorizontal={false}
       keyExtractor={[Function]}
+      keyboardShouldPersistTaps={true}
       layoutProvider={
         GridLayoutProviderWithProps {
           "_acceptableRelayoutDelta": 1,
@@ -89,33 +91,33 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             "_isGridHorizontal": false,
             "_isHorizontal": false,
             "_layoutProvider": [Circular],
-            "_layouts": Array [],
+            "_layouts": [],
             "_maxSpan": 1,
-            "_renderWindowSize": Object {
+            "_renderWindowSize": {
               "height": 0,
               "width": 400,
             },
             "_totalHeight": 0,
             "_totalWidth": 400,
-            "_window": Object {
+            "_window": {
               "height": 0,
               "width": 400,
             },
           },
           "_maxSpan": 1,
-          "_renderWindowSize": Object {
+          "_renderWindowSize": {
             "height": 0,
             "width": 400,
           },
           "_setLayoutForType": [Function],
-          "_tempDim": Object {
+          "_tempDim": {
             "height": 0,
             "width": 0,
           },
           "averageWindow": AverageWindow {
             "currentAverage": 100,
             "currentCount": 1,
-            "inputValues": Array [
+            "inputValues": [
               100,
               ,
               ,
@@ -126,27 +128,28 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             "nextIndex": 1,
           },
           "defaultEstimatedItemSize": 100,
-          "layoutObject": Object {
+          "layoutObject": {
             "size": undefined,
             "span": undefined,
           },
-          "props": Object {
+          "props": {
             "ListEmptyComponent": [Function],
             "ListFooterComponent": [Function],
             "ListHeaderComponent": [Function],
             "automaticallyAdjustContentInsets": false,
-            "data": Array [],
-            "estimatedListSize": Object {
+            "data": [],
+            "estimatedItemSize": 100,
+            "estimatedListSize": {
               "height": 0,
               "width": 400,
             },
-            "extraData": Array [
+            "extraData": [
               null,
               false,
             ],
             "inverted": true,
             "keyExtractor": [Function],
-            "keyboardShouldPersistTaps": undefined,
+            "keyboardShouldPersistTaps": true,
             "numColumns": 1,
             "onEndReached": [Function],
             "onEndReachedThreshold": 0.1,
@@ -155,7 +158,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             "renderItem": [Function],
             "scrollEventThrottle": 100,
           },
-          "renderWindowInsets": Object {
+          "renderWindowInsets": {
             "height": 0,
             "width": 0,
           },
@@ -163,7 +166,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
         }
       }
       layoutSize={
-        Object {
+        {
           "height": 0,
           "width": 400,
         }
@@ -189,8 +192,8 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
       scrollEventThrottle={100}
       scrollThrottle={16}
       scrollViewProps={
-        Object {
-          "contentContainerStyle": Object {
+        {
+          "contentContainerStyle": {
             "backgroundColor": undefined,
             "minHeight": 1,
             "minWidth": 1,
@@ -200,24 +203,24 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
           "onLayout": [Function],
           "onScrollBeginDrag": [Function],
           "refreshControl": undefined,
-          "style": Object {
+          "style": {
             "minHeight": 1,
             "minWidth": 1,
           },
         }
       }
       style={
-        Object {
+        {
           "minHeight": 1,
           "minWidth": 1,
         }
       }
       suppressBoundedSizeException={true}
       windowCorrectionConfig={
-        Object {
+        {
           "applyToInitialOffset": true,
           "applyToItemScroll": true,
-          "value": Object {
+          "value": {
             "endCorrection": 0,
             "startCorrection": 0,
             "windowShift": -1,
@@ -228,14 +231,14 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
       <View>
         <View
           style={
-            Object {
+            {
               "flexDirection": "column",
             }
           }
         >
           <View
             style={
-              Object {
+              {
                 "paddingLeft": 0,
                 "paddingTop": 0,
               }
@@ -243,11 +246,11 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
           />
           <View
             style={
-              Array [
+              [
                 undefined,
-                Object {
-                  "transform": Array [
-                    Object {
+                {
+                  "transform": [
+                    {
                       "scaleY": -1,
                     },
                   ],
@@ -256,15 +259,16 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             }
           >
             <View
+              collapsable={false}
               style={
-                Object {
+                {
                   "backgroundColor": "#f0f0f0",
                   "borderRadius": 15,
                   "height": 0,
                   "marginBottom": 0,
                   "marginLeft": 8,
-                  "transform": Array [
-                    Object {
+                  "transform": [
+                    {
                       "translateY": 200,
                     },
                   ],
@@ -281,7 +285,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             renderAheadOffset={0}
             scrollOffset={0}
             style={
-              Object {
+              {
                 "height": 0,
                 "width": 400,
               }
@@ -290,7 +294,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
           />
           <View
             style={
-              Object {
+              {
                 "flex": 1,
               }
             }
@@ -298,11 +302,11 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
           <CellContainer
             index={-1}
             style={
-              Array [
+              [
                 undefined,
-                Object {
-                  "transform": Array [
-                    Object {
+                {
+                  "transform": [
+                    {
                       "scaleY": -1,
                     },
                   ],
@@ -312,7 +316,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
           >
             <View
               style={
-                Object {
+                {
                   "flex": 1,
                 }
               }
@@ -320,7 +324,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
           </CellContainer>
           <View
             style={
-              Object {
+              {
                 "paddingBottom": 0,
                 "paddingRight": 0,
               }

@@ -268,6 +268,7 @@ export default class Bubble<
           ? optionTitles.slice(0, 2)
           : DEFAULT_OPTION_TITLES
       const cancelButtonIndex = options.length - 1
+      //@ts-ignore
       this.context.actionSheet().showActionSheetWithOptions(
         {
           options,

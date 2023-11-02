@@ -7,7 +7,7 @@ module.exports = {
     // '^.+\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js',
   },
   transformIgnorePatterns: [
-    '/node_modules/(?!(@react-native|react-native)).*/',
+    'node_modules/(?!((jest-)?react-native(-.*)?|@react-native(-community)?)/)',
   ],
   testMatch: ['**/*.test.ts?(x)'],
   modulePathIgnorePatterns: ['<rootDir>/example'],

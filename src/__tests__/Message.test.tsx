@@ -26,7 +26,18 @@ describe('Message component', () => {
 
   it('should NOT render <Message />', () => {
     const tree = renderer
-      .create(<Message key='123' user={{ _id: 1 }} currentMessage={null} />)
+      .create(
+        <Message
+          key='123'
+          user={{ _id: 1 }}
+          currentMessage={{
+            _id: '1',
+            createdAt: new Date(),
+            text: 'hello',
+            user: { _id: 1 },
+          }}
+        />,
+      )
       .toJSON()
 
     expect(tree).toMatchSnapshot()

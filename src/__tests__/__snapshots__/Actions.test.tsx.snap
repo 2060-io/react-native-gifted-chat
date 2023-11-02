@@ -2,7 +2,25 @@
 
 exports[`should render <Actions /> and compare with snapshot 1`] = `
 <View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
   accessible={true}
+  collapsable={false}
   focusable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -12,7 +30,7 @@ exports[`should render <Actions /> and compare with snapshot 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "height": 26,
       "marginBottom": 10,
       "marginLeft": 10,
@@ -23,8 +41,8 @@ exports[`should render <Actions /> and compare with snapshot 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
+      [
+        {
           "borderColor": "#b2b2b2",
           "borderRadius": 13,
           "borderWidth": 2,
@@ -36,8 +54,8 @@ exports[`should render <Actions /> and compare with snapshot 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
+        [
+          {
             "backgroundColor": "transparent",
             "color": "#b2b2b2",
             "fontSize": 16,

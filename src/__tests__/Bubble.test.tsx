@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 
 import { Bubble } from '../GiftedChat'
 
-it('should render <Bubble /> and compare with snapshot', () => {
+it('should render <Bubble /> and compare with snapshot', async () => {
   const tree = renderer
     .create(
       <Bubble<any>
