@@ -42,7 +42,7 @@ exports[`Message component should NOT render <Message /> 1`] = `
           "marginRight": 0,
         },
         {
-          "marginBottom": 10,
+          "marginBottom": 8.56,
         },
         false,
         undefined,
@@ -63,15 +63,6 @@ exports[`Message component should NOT render <Message /> 1`] = `
       <View
         style={
           [
-            {
-              "backgroundColor": "#f0f0f0",
-              "borderRadius": 15,
-              "justifyContent": "flex-end",
-              "marginRight": 60,
-              "minHeight": 20,
-            },
-            null,
-            null,
             undefined,
           ]
         }
@@ -96,99 +87,7 @@ exports[`Message component should NOT render <Message /> 1`] = `
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-        >
-          <View>
-            <View
-              style={
-                [
-                  {},
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "color": "black",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                      "marginBottom": 5,
-                      "marginLeft": 10,
-                      "marginRight": 10,
-                      "marginTop": 5,
-                    },
-                    undefined,
-                    undefined,
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    [
-                      [
-                        {
-                          "color": "black",
-                          "fontSize": 16,
-                          "lineHeight": 20,
-                          "marginBottom": 5,
-                          "marginLeft": 10,
-                          "marginRight": 10,
-                          "marginTop": 5,
-                        },
-                        undefined,
-                        undefined,
-                      ],
-                      undefined,
-                    ]
-                  }
-                >
-                  hello
-                </Text>
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              [
-                {
-                  "flexDirection": "row",
-                  "justifyContent": "flex-start",
-                },
-                undefined,
-              ]
-            }
-          >
-            <View
-              style={
-                [
-                  {
-                    "marginBottom": 5,
-                    "marginLeft": 10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "backgroundColor": "transparent",
-                      "color": "#aaa",
-                      "fontSize": 10,
-                      "textAlign": "right",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                10:08 AM
-              </Text>
-            </View>
-          </View>
-        </View>
+        />
       </View>
     </View>
   </View>
@@ -237,7 +136,7 @@ exports[`Message component should render <Message /> and compare with snapshot 1
           "marginRight": 0,
         },
         {
-          "marginBottom": 10,
+          "marginBottom": 8.56,
         },
         false,
         undefined,
@@ -258,15 +157,6 @@ exports[`Message component should render <Message /> and compare with snapshot 1
       <View
         style={
           [
-            {
-              "backgroundColor": "#f0f0f0",
-              "borderRadius": 15,
-              "justifyContent": "flex-end",
-              "marginRight": 60,
-              "minHeight": 20,
-            },
-            null,
-            null,
             undefined,
           ]
         }
@@ -291,99 +181,7 @@ exports[`Message component should render <Message /> and compare with snapshot 1
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-        >
-          <View>
-            <View
-              style={
-                [
-                  {},
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "color": "black",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                      "marginBottom": 5,
-                      "marginLeft": 10,
-                      "marginRight": 10,
-                      "marginTop": 5,
-                    },
-                    undefined,
-                    undefined,
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    [
-                      [
-                        {
-                          "color": "black",
-                          "fontSize": 16,
-                          "lineHeight": 20,
-                          "marginBottom": 5,
-                          "marginLeft": 10,
-                          "marginRight": 10,
-                          "marginTop": 5,
-                        },
-                        undefined,
-                        undefined,
-                      ],
-                      undefined,
-                    ]
-                  }
-                >
-                  test
-                </Text>
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              [
-                {
-                  "flexDirection": "row",
-                  "justifyContent": "flex-start",
-                },
-                undefined,
-              ]
-            }
-          >
-            <View
-              style={
-                [
-                  {
-                    "marginBottom": 5,
-                    "marginLeft": 10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "backgroundColor": "transparent",
-                      "color": "#aaa",
-                      "fontSize": 10,
-                      "textAlign": "right",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                7:20 PM
-              </Text>
-            </View>
-          </View>
-        </View>
+        />
       </View>
     </View>
   </View>
@@ -432,50 +230,13 @@ exports[`Message component should render <Message /> with Avatar 1`] = `
           "marginRight": 0,
         },
         {
-          "marginBottom": 10,
+          "marginBottom": 8.56,
         },
         false,
         undefined,
       ]
     }
   >
-    <View
-      style={
-        [
-          {
-            "marginRight": 8,
-          },
-          {},
-          undefined,
-        ]
-      }
-    >
-      <View
-        accessibilityRole="image"
-        style={
-          [
-            {
-              "alignItems": "center",
-              "borderRadius": 20,
-              "height": 40,
-              "justifyContent": "center",
-              "width": 40,
-            },
-            {
-              "backgroundColor": "transparent",
-            },
-            [
-              {
-                "borderRadius": 18,
-                "height": 36,
-                "width": 36,
-              },
-              undefined,
-            ],
-          ]
-        }
-      />
-    </View>
     <View
       style={
         [
@@ -490,15 +251,6 @@ exports[`Message component should render <Message /> with Avatar 1`] = `
       <View
         style={
           [
-            {
-              "backgroundColor": "#f0f0f0",
-              "borderRadius": 15,
-              "justifyContent": "flex-end",
-              "marginRight": 60,
-              "minHeight": 20,
-            },
-            null,
-            null,
             undefined,
           ]
         }
@@ -523,99 +275,7 @@ exports[`Message component should render <Message /> with Avatar 1`] = `
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-        >
-          <View>
-            <View
-              style={
-                [
-                  {},
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "color": "black",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                      "marginBottom": 5,
-                      "marginLeft": 10,
-                      "marginRight": 10,
-                      "marginTop": 5,
-                    },
-                    undefined,
-                    undefined,
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    [
-                      [
-                        {
-                          "color": "black",
-                          "fontSize": 16,
-                          "lineHeight": 20,
-                          "marginBottom": 5,
-                          "marginLeft": 10,
-                          "marginRight": 10,
-                          "marginTop": 5,
-                        },
-                        undefined,
-                        undefined,
-                      ],
-                      undefined,
-                    ]
-                  }
-                >
-                  test
-                </Text>
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              [
-                {
-                  "flexDirection": "row",
-                  "justifyContent": "flex-start",
-                },
-                undefined,
-              ]
-            }
-          >
-            <View
-              style={
-                [
-                  {
-                    "marginBottom": 5,
-                    "marginLeft": 10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "backgroundColor": "transparent",
-                      "color": "#aaa",
-                      "fontSize": 10,
-                      "textAlign": "right",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                7:20 PM
-              </Text>
-            </View>
-          </View>
-        </View>
+        />
       </View>
     </View>
   </View>
@@ -664,7 +324,7 @@ exports[`Message component should render null if user has no Avatar 1`] = `
           "marginRight": 0,
         },
         {
-          "marginBottom": 10,
+          "marginBottom": 8.56,
         },
         false,
         undefined,
@@ -685,15 +345,6 @@ exports[`Message component should render null if user has no Avatar 1`] = `
       <View
         style={
           [
-            {
-              "backgroundColor": "#f0f0f0",
-              "borderRadius": 15,
-              "justifyContent": "flex-end",
-              "marginRight": 60,
-              "minHeight": 20,
-            },
-            null,
-            null,
             undefined,
           ]
         }
@@ -718,99 +369,7 @@ exports[`Message component should render null if user has no Avatar 1`] = `
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-        >
-          <View>
-            <View
-              style={
-                [
-                  {},
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "color": "black",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                      "marginBottom": 5,
-                      "marginLeft": 10,
-                      "marginRight": 10,
-                      "marginTop": 5,
-                    },
-                    undefined,
-                    undefined,
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    [
-                      [
-                        {
-                          "color": "black",
-                          "fontSize": 16,
-                          "lineHeight": 20,
-                          "marginBottom": 5,
-                          "marginLeft": 10,
-                          "marginRight": 10,
-                          "marginTop": 5,
-                        },
-                        undefined,
-                        undefined,
-                      ],
-                      undefined,
-                    ]
-                  }
-                >
-                  test
-                </Text>
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              [
-                {
-                  "flexDirection": "row",
-                  "justifyContent": "flex-start",
-                },
-                undefined,
-              ]
-            }
-          >
-            <View
-              style={
-                [
-                  {
-                    "marginBottom": 5,
-                    "marginLeft": 10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-            >
-              <Text
-                style={
-                  [
-                    {
-                      "backgroundColor": "transparent",
-                      "color": "#aaa",
-                      "fontSize": 10,
-                      "textAlign": "right",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                7:20 PM
-              </Text>
-            </View>
-          </View>
-        </View>
+        />
       </View>
     </View>
   </View>

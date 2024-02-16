@@ -293,12 +293,12 @@ function GiftedChat<TMessage extends IMessage = IMessage>(
   useEffect(() => {
     isMountedRef.current = true
 
-    setState({
-      ...state,
+    setState(prevState => ({
+      ...prevState,
       messages,
       // Text prop takes precedence over state.
       ...(text !== undefined && text !== state.text && { text: text }),
-    })
+    }))
 
     if (inverted === false && messages?.length) {
       setTimeout(() => scrollToBottom(false), 200)

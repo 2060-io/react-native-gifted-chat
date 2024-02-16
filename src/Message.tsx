@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { View, StyleSheet, ViewStyle, LayoutChangeEvent } from 'react-native'
 
-import { Avatar, AvatarProps } from './Avatar'
 import Bubble from './Bubble'
 import { SystemMessage, SystemMessageProps } from './SystemMessage'
 import { Day, DayProps } from './Day'
@@ -33,7 +32,6 @@ const styles = {
 
 export interface MessageProps<TMessage extends IMessage> {
   key: any
-  showUserAvatar?: boolean
   position: 'left' | 'right'
   currentMessage?: TMessage
   nextMessage?: TMessage
@@ -41,10 +39,9 @@ export interface MessageProps<TMessage extends IMessage> {
   user: User
   inverted?: boolean
   containerStyle?: LeftRightStyle<ViewStyle>
-  renderBubble?(props: Bubble['props']): React.ReactNode
+  renderMessage?(props: Bubble['props']): React.ReactNode
   renderDay?(props: DayProps<TMessage>): React.ReactNode
   renderSystemMessage?(props: SystemMessageProps<TMessage>): React.ReactNode
-  renderAvatar?(props: AvatarProps<TMessage>): React.ReactNode
   shouldUpdateMessage?(
     props: MessageProps<IMessage>,
     nextProps: MessageProps<IMessage>,
@@ -56,8 +53,7 @@ export default class Message<
   TMessage extends IMessage = IMessage
 > extends React.Component<MessageProps<TMessage>> {
   static defaultProps = {
-    renderAvatar: undefined,
-    renderBubble: null,
+    renderMessage: null,
     renderDay: null,
     renderSystemMessage: null,
     position: 'left',
@@ -66,16 +62,13 @@ export default class Message<
     previousMessage: {},
     user: {},
     containerStyle: {},
-    showUserAvatar: false,
     inverted: true,
     shouldUpdateMessage: undefined,
     onMessageLayout: undefined,
   }
 
   static propTypes = {
-    renderAvatar: PropTypes.func,
-    showUserAvatar: PropTypes.bool,
-    renderBubble: PropTypes.func,
+    renderMessage: PropTypes.func,
     renderDay: PropTypes.func,
     renderSystemMessage: PropTypes.func,
     position: PropTypes.oneOf(['left', 'right']),
@@ -130,10 +123,10 @@ export default class Message<
     return null
   }
 
-  renderBubble() {
+  renderMessage() {
     const { containerStyle, onMessageLayout, ...props } = this.props
-    if (this.props.renderBubble) {
-      return this.props.renderBubble(props)
+    if (this.props.renderMessage) {
+      return this.props.renderMessage(props)
     }
     // @ts-ignore
     return <Bubble {...props} />
@@ -146,32 +139,6 @@ export default class Message<
       return this.props.renderSystemMessage(props)
     }
     return <SystemMessage {...props} />
-  }
-
-  renderAvatar() {
-    const { user, currentMessage, showUserAvatar } = this.props
-
-    if (
-      user &&
-      user._id &&
-      currentMessage &&
-      currentMessage.user &&
-      user._id === currentMessage.user._id &&
-      !showUserAvatar
-    ) {
-      return null
-    }
-
-    if (
-      currentMessage &&
-      currentMessage.user &&
-      currentMessage.user.avatar === null
-    ) {
-      return null
-    }
-
-    const { containerStyle, onMessageLayout, ...props } = this.props
-    return <Avatar {...props} />
   }
 
   render() {
@@ -193,14 +160,12 @@ export default class Message<
             <View
               style={[
                 styles[position].container,
-                { marginBottom: sameUser ? 2 : 10 },
+                { marginBottom: sameUser ? 4.28 : 8.56 },
                 !this.props.inverted && { marginBottom: 2 },
                 containerStyle && containerStyle[position],
               ]}
             >
-              {this.props.position === 'left' ? this.renderAvatar() : null}
-              {this.renderBubble()}
-              {this.props.position === 'right' ? this.renderAvatar() : null}
+              {this.renderMessage()}
             </View>
           )}
         </View>
